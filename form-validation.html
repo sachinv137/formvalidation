@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validation</title>
+    <style>
+        body  
+{  
+    margin: 0;  
+    padding: 0;  
+    background-color:#6abadeba;  
+    font-family: 'Arial';  
+}  
+input{
+    border: 1px solid lightgray;
+    outline: none;
+}
+.login{  
+        overflow: hidden;  
+        margin: auto;  
+        margin: 20 0 0 450px;  
+        padding: 33px;  
+        background: #fff;  
+        border-radius: 15px ;  
+        position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 224px;  
+    box-shadow: 2px 3px 6px #8b8686d4;
+}  
+ 
+ 
+#login{
+    text-align: center;
+    padding-top: 38px;
+}
+#Uname{  
+    width: 300px;  
+    height: 30px;  
+    border-radius: 3px;  
+    padding-left: 8px;  
+}  
+#Pass{  
+    width: 300px;  
+    height: 30px;   
+    border-radius: 3px;  
+    padding-left: 8px;  
+      
+}  
+#log{  
+    outline: none;
+    width: 312px;
+    height: 31px;
+    border-radius: 5px;
+    padding-left: 7px;
+    color: #fff;
+    background: cornflowerblue;
+    border: none;
+    cursor: pointer;
+}  
+#erroruser, #errorpass{
+    color: red;
+    font-size: 11px;
+    display: block;
+    text-align: left;
+    padding-top: 5px;
+}
+    </style>
+</head>
+<body> 
+    <div class="login">    
+    <form id="login" onsubmit="return validation()">    
+        
+        <input type="text" name="Uname" id="Uname" onblur="checkblank()" oninput="checkvalue()" placeholder="Username" >    
+        <small id="erroruser"></small>
+        <br> 
+        <input type="Password" name="Pass" id="Pass" onblur="checkblank()" oninput="checkvalue()" placeholder="Password" >    
+        <small id="errorpass"></small>
+        <br>   
+        <button type="submit" name="log" id="log" value="Log In Here">  Log In Here</button>     
+        
+    </form>     
+</div>  
+<script>
+          var user=document.getElementById("Uname");
+          var pass=document.getElementById("Pass");
+          var erroruser=document.getElementById("erroruser");
+          var errorpass=document.getElementById("errorpass");
+    function validation(){
+  
+        if(user.value==''){
+            erroruser.innerHTML="User name sholid not be blank"; 
+            user.style.border="1px solid red";
+            return false;
+        }
+        if(pass.value==''){
+            errorpass.innerHTML="Password sholid not be blank";
+            pass.style.border="1px solid red";
+            return false;
+        }
+        else{
+            return true;
+        }
+   
+    }
+
+    function checkvalue(){
+if(user.value!==''){
+    erroruser.innerHTML=""; 
+            user.style.border="1px solid lightgray";
+}
+if(pass.value!==''){
+    errorpass.innerHTML=""; 
+            pass.style.border="1px solid lightgray";
+}
+    }
+
+    function checkblank(){
+        if(user.value==''){
+            erroruser.innerHTML="User name sholid not be blank"; 
+            user.style.border="1px solid red";
+            
+        }
+        if(pass.value==''){
+            errorpass.innerHTML="Password sholid not be blank";
+            pass.style.border="1px solid red";
+           
+        }
+    }
+</script>  
+</body>
+</html>
